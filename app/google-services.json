@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1031984067638",
+    "project_id": "kamarfilm-kotlin",
+    "storage_bucket": "kamarfilm-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031984067638:android:7964d419aa038846491497",
+        "android_client_info": {
+          "package_name": "com.example.kamarfilm_kotlin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCns3kTgenm-HVWc6fkNhEVJLak-36YA6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
