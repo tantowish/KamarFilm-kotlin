@@ -1,28 +1,35 @@
 package com.example.kamarfilm_kotlin.authenticate
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
 import com.example.kamarfilm_kotlin.admin.DashboardActivity
-import com.example.kamarfilm_kotlin.databinding.ActivityRegisterBinding
+import com.example.kamarfilm_kotlin.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 
-class RegisterActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityRegisterBinding
+class RegisterFragment : Fragment() {
+    private lateinit var binding: FragmentRegisterBinding
     private lateinit var auth: FirebaseAuth
     private val firestore = FirebaseFirestore.getInstance()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         auth = FirebaseAuth.getInstance()
 
@@ -37,7 +44,7 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val user = auth.currentUser
                         Toast.makeText(
-                            this@RegisterActivity,
+                            requireContext(),
                             "Account Created",
                             Toast.LENGTH_SHORT
                         ).show()
@@ -51,13 +58,12 @@ class RegisterActivity : AppCompatActivity() {
                             "role" to "user"
                         )
                         df.set(userInfo)
-                        val intent =
-                            Intent(this@RegisterActivity, DashboardActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        val intent = Intent(requireContext(), DashboardActivity::class.java)
+                        requireActivity().startActivity(intent)
+                        requireActivity().finish()
                     } else {
                         Toast.makeText(
-                            this@RegisterActivity,
+                            requireContext(),
                             "Failed to Create Account: ${task.exception?.message}",
                             Toast.LENGTH_SHORT
                         ).show()
@@ -65,7 +71,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
             } else {
                 Toast.makeText(
-                    this@RegisterActivity,
+                    requireContext(),
                     "Input the needed credentials.",
                     Toast.LENGTH_SHORT
                 ).show()

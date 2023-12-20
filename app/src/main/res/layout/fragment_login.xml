@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authenticate.LoginActivity"
     android:gravity="center"
     android:orientation="vertical"
-    >
+    tools:context=".authenticate.LoginFragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -94,29 +93,6 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Member? "
-                android:textColor="#1E293B"
-                />
-            <TextView
-                android:id="@+id/tvRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Register"
-                android:textColor="#2F7DD3"
-                />
-
-        </LinearLayout>
 
     </LinearLayout>
 

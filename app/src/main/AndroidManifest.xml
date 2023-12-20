@@ -12,16 +12,16 @@
         android:theme="@style/Theme.KamarFilmkotlin"
         tools:targetApi="31">
         <activity
-            android:name=".admin.DashboardActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".authenticate.LoginActivity"
+            android:name=".user.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".authenticate.RegisterActivity"
+            android:name=".admin.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".authenticate.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
